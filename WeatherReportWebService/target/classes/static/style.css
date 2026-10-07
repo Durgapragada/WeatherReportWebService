@@ -1,0 +1,209 @@
+:root {
+    --teal-gradient: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+    --surface-gradient: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%);
+    --bg-main: #f0fdfa;
+    --card-surface: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #4f7a77;
+    --border-color: #ccfbf1;
+    --focus-ring: rgba(13, 148, 136, 0.2);
+    --shadow-lg: 0 10px 25px -5px rgba(13, 148, 136, 0.1), 0 8px 16px -6px rgba(13, 148, 136, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    padding-bottom: 60px;
+    line-height: 1.5;
+}
+
+header {
+    background: var(--teal-gradient);
+    color: white;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+header h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #ccfbf1;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 2rem;
+}
+
+.form-container, .table-container {
+    background-color: var(--card-surface);
+    padding: 2.25rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+}
+
+h2 {
+    margin-bottom: 1.75rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 45px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--surface-gradient);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+label {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+input, select {
+    padding: 0.75rem 1rem;
+    border: 1px solid #b2f5ea;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background-color: #f7fee7;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+input:focus, select:focus {
+    background-color: white;
+    border-color: #0d9488;
+    box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+.submit-btn {
+    background: var(--surface-gradient);
+    padding: 0.85rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.2);
+    margin-top: 0.5rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(13, 148, 136, 0.3);
+}
+
+.cancel-btn {
+    background-color: #e2e8f0;
+    color: #475569;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.cancel-btn:hover { background-color: #cbd5e1; }
+
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th {
+    background-color: #f0fdfa;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 1.25rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+td {
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #f0fdfa;
+}
+
+tr:hover td { background-color: #f8fafc; }
+
+.btn-edit, .btn-delete {
+    padding: 0.4rem 0.85rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.btn-edit { background-color: #fef9c3; color: #854d0e; margin-right: 0.25rem; }
+.btn-edit:hover { background-color: #fef08a; transform: translateY(-1px); }
+
+.btn-delete { background-color: #fee2e2; color: #991b1b; }
+.btn-delete:hover { background-color: #fecaca; transform: translateY(-1px); }
+
+.hidden { display: none !important; }
+
+input:disabled, select:disabled {
+    background-color: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+    .container { grid-template-columns: 1fr; }
+}

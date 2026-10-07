@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Weather Report Operations Centre</h1>
+        <p>Live Meteorological Management Console</p>
+    </header>
+
+    <div class="container">
+        <!-- Input Form Section Area -->
+        <div class="form-container">
+            <h2 id="form-title">Insert Weather Report</h2>
+            <form id="weather-form">
+                <!-- Hidden parameter tracker tracking active updates -->
+                <input type="hidden" id="weather-id">
+                
+                <div class="form-group">
+                    <label for="city">Target City Name</label>
+                    <input type="text" id="city" required placeholder="e.g. Mumbai">
+                </div>
+
+                <div class="form-group">
+                    <label for="temperature">Current Temperature</label>
+                    <input type="text" id="temperature" required placeholder="e.g. 29°C">
+                </div>
+
+                <div class="form-group">
+                    <label for="conditions">Atmospheric Conditions</label>
+                    <select id="conditions" required>
+                        <option value="" disabled selected>Select Atmosphere...</option>
+                        <option value="sunny">Sunny ☀️</option>
+                        <option value="cloudy">Cloudy ☁️</option>
+                        <option value="rainy">Rainy 🌧️</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Logging Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Save Report Metrics</button>
+                <button type="button" id="cancel-btn" class="cancel-btn hidden" onclick="resetForm()">Cancel Edit Mode</button>
+            </form>
+        </div>
+
+        <!-- Directory Output Listing Area -->
+        <div class="table-container">
+            <h2>Weather Tracking Logs</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Report ID</th>
+                            <th>Target City</th>
+                            <th>Temperature</th>
+                            <th>Atmosphere</th>
+                            <th>Logged Date</th>
+                            <th>Control Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="weather-table-body">
+                        <!-- Content injected via JavaScript routine -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
